@@ -13,14 +13,24 @@
  * INCLUDES
  */
 
+	/* NML */
+#include "nmlobject.h"
+
 
 /*
  * CLASS
  */
 
 /** NML main class */
-class Nml
+class NML
 {
+private:
+	std::vector<NMLvar> defines;
+	std::vector<NMLobject> objects;
+
+public:
+	bool open(const char *filename);
+
 };
 
 #endif	/* NML_H_ */

@@ -1,0 +1,25 @@
+version: string('1.0');
+include: file('other_file.nml');
+define: white color(1.0 1.0 1.0);
+
+material[white_plastic]
+{
+  diffuse: white;
+  specular: white float(0.2);
+  ambient: color(0.0 0.0 0.0);
+}
+
+object cube
+{
+  mesh: file('cube');
+  material
+  {
+    diffuse: color(1.0 0.0 0.0);
+  }
+}
+
+object sphere
+{
+  mesh: file('sphere');
+  white_plastic;
+}

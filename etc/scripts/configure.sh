@@ -103,18 +103,18 @@ echo ""
 
 # Check arguments
 for ARG in "$@"; do
-  if [ $ARG == "--help" ] || [ $ARG == "-h" ]; then     # Display help
+  if [ $ARG == "--help" ] || [ $ARG == "-h" ]; then      # Display help
     display_help
     exit
-  elif [ $ARG == "--debug" ] || [ $ARG == "-g" ]; then  # Compiles with the debug flag
+  elif [ $ARG == "--debug" ] || [ $ARG == "-g" ]; then   # Compiles with the debug flag
     echo -e "${COLOR_INFO} + Debug mode${COLOR_RESET}"
     OPTIONS="$OPTIONS -DCMAKE_BUILD_TYPE=Debug"
-  elif [ $ARG == "--release" ]; then                    # Compiles with the release flag
+  elif [ $ARG == "--release" ] || [ $ARG == "-r" ]; then # Compiles with the release flag
     echo -e "${COLOR_INFO} + Release mode${COLOR_RESET}"
     OPTIONS="$OPTIONS -DCMAKE_BUILD_TYPE=Release"
-  elif [ ${ARG:0:2} == "-D" ]; then                     # cmake definitions
+  elif [ ${ARG:0:2} == "-D" ]; then                      # cmake definitions
     OPTIONS="$OPTIONS -D${ARG:2}"
-  elif [ $ARG == "--reset" ] || [ $ARG == "-r" ]; then  # Cleans the current folder before configuration
+  elif [ $ARG == "--reset" ]; then                       # Cleans the current folder before configuration
     echo -e "${COLOR_INFO} + Cleaning folder...${COLOR_RESET}"
     rm -rf *
   else
